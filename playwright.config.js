@@ -21,7 +21,7 @@ const config = {
 
   //number of retries if test case fails
   retries: 0,
-
+  testDir: './tests',
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
 
   // reporter: [[`./CustomReporterConfig.ts`], ['list'], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }]],
@@ -38,7 +38,7 @@ const config = {
       }
     },
     {
-      name: 'e2e',
+      name: 'chrome',
       dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],

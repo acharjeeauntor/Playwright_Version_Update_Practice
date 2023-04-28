@@ -15,3 +15,4 @@ This repo mainly used for Playwright Version Update Practice Purpose.
 
 ## Version Wise Feature Practice:<br>
 1. < v1.31<br>
+1. v1.32<br>

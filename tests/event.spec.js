@@ -46,14 +46,51 @@ test('Popup Event', async ({ page },testInfo) => {
     await download.saveAs('/path/to/save/at/' + download.suggestedFilename());
   });
 
-  test('Page Event', async ({ page,context }) => {
+  test('Page Event for new tab', async ({ page,context }) => {
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
     const pagePromise = context.waitForEvent('page');
 await page.locator('#opentab').click();
 const newPage = await pagePromise;
 await newPage.waitForLoadState();
 console.log(await newPage.title());
+console.log(await page.title());
   });
+
+
+  test('Page Event for new tab second way', async ({ page,context }) => {
+    await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  await page.locator('#opentab').click()
+])
+console.log(await newPage.title());
+console.log(await page.title());
+  });
+
+
+  test('Page Event for new window', async ({ page,context }) => {
+    await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+    const pagePromise = context.waitForEvent('page');
+await page.locator('#openwindow').click();
+const newPage = await pagePromise;
+await newPage.waitForLoadState();
+console.log(await newPage.title());
+console.log(await page.title());
+  });
+
+
+  test('Page Event for new window second way', async ({ page,context }) => {
+    await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+ const [newPage] = await Promise.all([
+  context.waitForEvent('page'),
+  await page.locator('#openwindow').click()
+ ])
+console.log(await newPage.title());
+console.log(await page.title());
+  });
+
+
   test('Request Event', async ({ page,context }) => {
 // second way
 page.on('request',async req=>{

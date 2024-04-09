@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "runWithUIMode":"npx playwright test --ui"
+    "runWithUIMode": "npx playwright test --ui"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@playwright/test": "^1.32.3"
+    "@playwright/test": "^1.39.0"
   }
 }
